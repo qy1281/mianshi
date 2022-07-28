@@ -1,0 +1,36 @@
+# 端口、数据源、thymeleaf、Mybatis、表单转换
+server:
+  port: 9981
+
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/food?serverTimezone=GMT%2B8
+
+  thymeleaf:
+    cache: false
+
+
+
+# 实现表单提交方式的转换
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+
+
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: cn.qq.*.entity
+  configuration:
+    map-underscore-to-camel-case: true #驼峰转换
+
+logging:
+  level:
+    cn.qq: debug

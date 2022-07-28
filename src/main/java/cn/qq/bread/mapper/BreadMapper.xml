@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace=绑定一个对应的Dao/Mapper接口-->
+<mapper namespace="cn.qq.bread.mapper.BreadMapper">
+
+
+    <insert id="addBread" parameterType="Bread">
+        insert into food.bread(id,type,createtime,expiration,endtime,price)
+        values (#{id},#{type},#{createtime},#{expiration},#{endtime},#{price})
+    </insert>
+
+    <select id="getBreadbyId" parameterType="Integer" resultType="cn.qq.bread.entity.Bread">
+        select * from food.bread where id=#{id}
+    </select>
+
+</mapper>
